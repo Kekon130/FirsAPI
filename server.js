@@ -2,7 +2,6 @@
 // Importamos mongoose
 const mongoose = require('mongoose');
 // Importamos el fichero app.js
-
 const app = require('./app');
 // Asignamos el puerto en el que levantaremos la API
 const port = process.env.PORT || 3000;
