@@ -2,7 +2,7 @@
 const User = require('../Models/UserModel');
 // Declaramos la función getAllUsers
 function getAllUsers(req, res) {
-  User.find((err, users) => {
+  User.find({}, (err, users) => {
     if (err) {
       return res.status(400).send(err.message);
     }
