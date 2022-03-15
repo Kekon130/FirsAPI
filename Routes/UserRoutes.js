@@ -9,7 +9,7 @@ router.get('/getAll', userController.getAllUsers);
 // Definimos la ruta de la función que registra a un usuario en la bas de datos
 router.post('/createUser', userController.createUser);
 // Definimos la ruta de la funcion que modifica la informacion de un usuario en la base de datos
-router.patch('/updateUser/:userId', userController.updateUser);
+router.patch('/updateUser', userController.updateUser);
 // Definimos la ruta para la función que elimine a un usuario de la base de datps
-router.delete('/deleteUser/:userId', userController.deleteUser);
+router.delete('/deleteUser', userController.deleteUser);
 module.exports = router;

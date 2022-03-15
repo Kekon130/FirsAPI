@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // Importamos el modelo del usuario
 const User = require('../Models/UserModel');
 // Funciones Post
@@ -28,7 +29,7 @@ function getAllUsers(req, res) {
 // Funciones Update
 // Declaramos la funcion updateUser
 function updateUser(req, res) {
-  User.findByIdAndUpdate(req.params.userId, req.body, (err, updatedUser) => {
+  User.findByIdAndUpdate(req.query.userId, req.body, (err, updatedUser) => {
     if (err) { return res.status(400).send(err.message); }
     return res.status(200).send(updatedUser);
   });
@@ -36,7 +37,7 @@ function updateUser(req, res) {
 // Funciones delete
 // Declaramos la función deleteUser
 function deleteUser(req, res) {
-  User.findByIdAndDelete(req.params.userId, req.body, (err, deletedUser) => {
+  User.findByIdAndDelete(req.query.userId, req.body, (err, deletedUser) => {
     if (err) { return res.status(400).send(err.message); }
     return res.status(200).send(deletedUser);
   });
