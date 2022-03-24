@@ -23,9 +23,14 @@ function getAllUsers(req, res) {
   });
 }
 
-/* function getUserId(req, res) {
-
-} */
+function getUserbyEmail(req, res) {
+  User.findOne({ email: req.query.email }, (err, user) => {
+    if (err) {
+      return res.status(400).send(err.message);
+    }
+    return res.send(user);
+  });
+}
 // Funciones Update
 // Declaramos la funcion updateUser
 function updateUser(req, res) {
@@ -43,8 +48,9 @@ function deleteUser(req, res) {
   });
 }
 module.exports = {
-  getAllUsers,
   createUser,
+  getAllUsers,
+  getUserbyEmail,
   updateUser,
   deleteUser,
 };
