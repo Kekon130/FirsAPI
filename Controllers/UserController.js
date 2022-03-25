@@ -22,9 +22,9 @@ function getAllUsers(req, res) {
     return res.send(users);
   });
 }
-
-function getUserbyEmail(req, res) {
-  User.findOne({ email: req.query.email }, (err, user) => {
+// Declaramos la función getUserByEmail
+function getUserByEmail(req, res) {
+  User.findOne(req.query, (err, user) => {
     if (err) {
       return res.status(400).send(err.message);
     }
@@ -34,7 +34,7 @@ function getUserbyEmail(req, res) {
 // Funciones Update
 // Declaramos la funcion updateUser
 function updateUser(req, res) {
-  User.findByIdAndUpdate(req.query.userId, req.body, (err, updatedUser) => {
+  User.findOneAndUpdate(req.query, req.body, (err, updatedUser) => {
     if (err) { return res.status(400).send(err.message); }
     return res.status(200).send(updatedUser);
   });
@@ -42,7 +42,7 @@ function updateUser(req, res) {
 // Funciones delete
 // Declaramos la función deleteUser
 function deleteUser(req, res) {
-  User.findByIdAndDelete(req.query.userId, req.body, (err, deletedUser) => {
+  User.findOneAndDelete(req.query, req.body, (err, deletedUser) => {
     if (err) { return res.status(400).send(err.message); }
     return res.status(200).send(deletedUser);
   });
@@ -50,7 +50,7 @@ function deleteUser(req, res) {
 module.exports = {
   createUser,
   getAllUsers,
-  getUserbyEmail,
+  getUserByEmail,
   updateUser,
   deleteUser,
 };

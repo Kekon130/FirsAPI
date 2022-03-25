@@ -7,7 +7,7 @@ const router = Router();
 // Definimos la ruta de la funcion que devuelve todos los usuarios registrados en la base de datos
 router.get('/getAll', userController.getAllUsers);
 // Definimos la ruta de la función que busca un usuario en la base de datos en funcion de su E-mail
-router.get('/getUserByEmail', userController.getUserbyEmail);
+router.get('/getUserByEmail', userController.getUserByEmail);
 // Definimos la ruta de la función que registra a un usuario en la bas de datos
 router.post('/createUser', userController.createUser);
 // Definimos la ruta de la funcion que modifica la informacion de un usuario en la base de datos
